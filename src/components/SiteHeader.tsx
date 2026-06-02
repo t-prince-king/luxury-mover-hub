@@ -25,13 +25,14 @@ export function SiteHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex gap-10 eyebrow text-cream/80" aria-label="Primary">
+        <nav className="hidden lg:flex gap-6 xl:gap-8 eyebrow text-xs text-cream/80" aria-label="Primary">
           {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
               className="hover:text-gold transition-colors"
               activeProps={{ className: "text-gold" }}
+              activeOptions={{ exact: item.to === "/" }}
             >
               {item.label}
             </Link>
@@ -40,7 +41,7 @@ export function SiteHeader() {
 
         <Link
           to="/contact"
-          className="hidden md:inline-flex px-6 py-2 border border-gold text-gold eyebrow hover:bg-gold hover:text-navy transition-all"
+          className="hidden lg:inline-flex px-5 py-2 border border-gold text-gold eyebrow text-xs hover:bg-gold hover:text-navy transition-all"
         >
           Inquire
         </Link>
@@ -48,7 +49,7 @@ export function SiteHeader() {
         {/* Mobile toggle */}
         <button
           type="button"
-          className="md:hidden p-2 text-cream"
+          className="lg:hidden p-2 text-cream"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -60,7 +61,7 @@ export function SiteHeader() {
       {/* Mobile panel */}
       {open && (
         <nav
-          className="md:hidden border-t border-gold/20 bg-navy"
+          className="lg:hidden border-t border-gold/20 bg-navy"
           aria-label="Mobile"
         >
           <ul className="container-page py-6 flex flex-col gap-5 eyebrow text-cream/80">
