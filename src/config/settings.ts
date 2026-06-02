@@ -42,10 +42,23 @@ export const social = {
 
 /** Primary navigation (used by header + footer) */
 export const nav = [
-  { label: "Properties", to: "/properties" as const },
-  { label: "Transport", to: "/transport" as const },
+  { label: "Home", to: "/" as const },
+  { label: "Real Estate", to: "/properties" as const },
+  { label: "Transport Hub", to: "/transport" as const },
+  { label: "Car Rental", to: "/car-rental" as const },
+  { label: "Taxi", to: "/taxi" as const },
+  { label: "Cargo", to: "/cargo" as const },
   { label: "About", to: "/about" as const },
   { label: "Contact", to: "/contact" as const },
+];
+
+/** Quick-access floating buttons (homepage + sticky) */
+export const quickAccess = [
+  { label: "Browse Properties", to: "/properties" as const, icon: "Home" },
+  { label: "Rent a Car", to: "/car-rental" as const, icon: "Car" },
+  { label: "Book Taxi", to: "/taxi" as const, icon: "Navigation" },
+  { label: "Cargo Transport", to: "/cargo" as const, icon: "Truck" },
+  { label: "Contact Us", to: "/contact" as const, icon: "Phone" },
 ];
 
 /** Headline statistics on the home Trust Bar — edit values here */

@@ -29,11 +29,13 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="text-cream eyebrow mb-6">Divisions</h4>
+          <h4 className="text-cream eyebrow mb-6">Services</h4>
           <ul className="space-y-4 text-sm">
-            <li><Link to="/properties" className="hover:text-gold transition-colors">Private Realty</Link></li>
-            <li><Link to="/transport" className="hover:text-gold transition-colors">Aviation & Fleet</Link></li>
-            <li><Link to="/transport" className="hover:text-gold transition-colors">Cargo Logistics</Link></li>
+            <li><Link to="/properties" className="hover:text-gold transition-colors">Real Estate</Link></li>
+            <li><Link to="/transport" className="hover:text-gold transition-colors">Transport Hub</Link></li>
+            <li><Link to="/car-rental" className="hover:text-gold transition-colors">Car Rental</Link></li>
+            <li><Link to="/taxi" className="hover:text-gold transition-colors">Taxi Booking</Link></li>
+            <li><Link to="/cargo" className="hover:text-gold transition-colors">Cargo Transport</Link></li>
           </ul>
         </div>
 

@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { FloatingQuickAccess } from "@/components/FloatingQuickAccess";
 import { site } from "@/config/settings";
 
 function NotFoundComponent() {
@@ -113,6 +114,7 @@ function RootComponent() {
         <main id="main" className="flex-1">
           <Outlet />
         </main>
+        <FloatingQuickAccess />
         <SiteFooter />
       </div>
     </QueryClientProvider>
