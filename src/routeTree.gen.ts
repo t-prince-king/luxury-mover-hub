@@ -10,15 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TransportRouteImport } from './routes/transport'
+import { Route as TaxiRouteImport } from './routes/taxi'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PropertiesRouteImport } from './routes/properties'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CargoRouteImport } from './routes/cargo'
+import { Route as CarRentalRouteImport } from './routes/car-rental'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TransportRoute = TransportRouteImport.update({
   id: '/transport',
   path: '/transport',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TaxiRoute = TaxiRouteImport.update({
+  id: '/taxi',
+  path: '/taxi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -36,6 +44,16 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CargoRoute = CargoRouteImport.update({
+  id: '/cargo',
+  path: '/cargo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CarRentalRoute = CarRentalRouteImport.update({
+  id: '/car-rental',
+  path: '/car-rental',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -50,26 +68,35 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/car-rental': typeof CarRentalRoute
+  '/cargo': typeof CargoRoute
   '/contact': typeof ContactRoute
   '/properties': typeof PropertiesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/taxi': typeof TaxiRoute
   '/transport': typeof TransportRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/car-rental': typeof CarRentalRoute
+  '/cargo': typeof CargoRoute
   '/contact': typeof ContactRoute
   '/properties': typeof PropertiesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/taxi': typeof TaxiRoute
   '/transport': typeof TransportRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/car-rental': typeof CarRentalRoute
+  '/cargo': typeof CargoRoute
   '/contact': typeof ContactRoute
   '/properties': typeof PropertiesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/taxi': typeof TaxiRoute
   '/transport': typeof TransportRoute
 }
 export interface FileRouteTypes {
@@ -77,34 +104,46 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/car-rental'
+    | '/cargo'
     | '/contact'
     | '/properties'
     | '/sitemap.xml'
+    | '/taxi'
     | '/transport'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/car-rental'
+    | '/cargo'
     | '/contact'
     | '/properties'
     | '/sitemap.xml'
+    | '/taxi'
     | '/transport'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/car-rental'
+    | '/cargo'
     | '/contact'
     | '/properties'
     | '/sitemap.xml'
+    | '/taxi'
     | '/transport'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CarRentalRoute: typeof CarRentalRoute
+  CargoRoute: typeof CargoRoute
   ContactRoute: typeof ContactRoute
   PropertiesRoute: typeof PropertiesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TaxiRoute: typeof TaxiRoute
   TransportRoute: typeof TransportRoute
 }
 
@@ -115,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/transport'
       fullPath: '/transport'
       preLoaderRoute: typeof TransportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/taxi': {
+      id: '/taxi'
+      path: '/taxi'
+      fullPath: '/taxi'
+      preLoaderRoute: typeof TaxiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -138,6 +184,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cargo': {
+      id: '/cargo'
+      path: '/cargo'
+      fullPath: '/cargo'
+      preLoaderRoute: typeof CargoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/car-rental': {
+      id: '/car-rental'
+      path: '/car-rental'
+      fullPath: '/car-rental'
+      preLoaderRoute: typeof CarRentalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -158,11 +218,24 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CarRentalRoute: CarRentalRoute,
+  CargoRoute: CargoRoute,
   ContactRoute: ContactRoute,
   PropertiesRoute: PropertiesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TaxiRoute: TaxiRoute,
   TransportRoute: TransportRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
