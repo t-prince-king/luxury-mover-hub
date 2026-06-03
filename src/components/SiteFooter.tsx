@@ -3,7 +3,7 @@
  * Edit company copy via src/config/settings.ts.
  */
 import { Link } from "@tanstack/react-router";
-import { contact, site } from "@/config/settings";
+import { contact, credit, site } from "@/config/settings";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
@@ -17,9 +17,9 @@ export function SiteFooter() {
               className="w-6 h-6 border border-gold flex items-center justify-center font-serif italic text-gold text-xs"
               aria-hidden
             >
-              V
+              K
             </span>
-            <span className="font-serif text-lg tracking-[0.25em] uppercase text-cream">
+            <span className="font-serif text-sm tracking-[0.2em] uppercase text-cream leading-tight">
               {site.name}
             </span>
           </div>
@@ -49,12 +49,31 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="container-page pt-8 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center gap-4 eyebrow text-cream/30">
-        <span>&copy; {year} {site.legalName}</span>
-        <div className="flex gap-8">
-          {(["London", "New York", "Singapore", "Dubai"] as const).map((o) => (
-            <span key={o}>{o}</span>
-          ))}
+      {/*
+        FOOTER BOTTOM BAR
+        -----------------
+        Left:  SiteCrafter credit (edit text/URL in src/config/settings.ts → `credit`)
+        Right: copyright + office cities
+      */}
+      <div className="container-page pt-8 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-cream/40">
+        <p className="order-2 md:order-1">
+          <span className="opacity-70">{credit.prefix} </span>
+          <a
+            href={credit.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold tracking-wide text-gold hover:text-cream transition-colors"
+          >
+            {credit.label}
+          </a>
+        </p>
+        <div className="order-1 md:order-2 flex flex-col md:flex-row items-center gap-3 md:gap-8 eyebrow text-cream/40">
+          <span>&copy; {year} {site.legalName}</span>
+          <div className="flex gap-6">
+            {contact.offices.map((o) => (
+              <span key={o}>{o}</span>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

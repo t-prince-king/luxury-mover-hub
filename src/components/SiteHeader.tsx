@@ -19,9 +19,11 @@ export function SiteHeader() {
             className="w-8 h-8 border border-gold flex items-center justify-center font-serif italic text-gold text-lg"
             aria-hidden
           >
-            V
+            K
           </span>
-          <span className="font-serif text-xl tracking-[0.25em] uppercase">{site.name}</span>
+          <span className="font-serif text-sm md:text-base tracking-[0.2em] uppercase leading-tight max-w-[16rem]">
+            {site.name}
+          </span>
         </Link>
 
         {/* Desktop nav */}
