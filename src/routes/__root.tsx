@@ -18,27 +18,19 @@ import { site } from "@/config/settings";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-[70vh] items-center justify-center px-4 bg-cream">
-      <div className="max-w-xl text-center">
-        <p className="eyebrow text-gold mb-4">Error 404 · {site.shortName}</p>
+    <div className="flex min-h-[70vh] items-center justify-center px-4">
+      <div className="max-w-md text-center">
+        <p className="eyebrow text-gold mb-4">Error 404</p>
         <h1 className="font-serif text-6xl text-navy mb-4">Page not found</h1>
-        <p className="text-sm text-muted-foreground mb-10">
-          The page you are looking for does not exist or has been moved. Choose a destination below.
+        <p className="text-sm text-muted-foreground mb-8">
+          The page you are looking for does not exist or has been moved.
         </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          <Link to="/" className="px-6 py-3 bg-navy text-cream eyebrow hover:bg-gold hover:text-navy transition-colors">
-            Go Home
-          </Link>
-          <Link to="/properties" className="px-6 py-3 border border-navy text-navy eyebrow hover:bg-navy hover:text-cream transition-colors">
-            View Properties
-          </Link>
-          <Link to="/transport" className="px-6 py-3 border border-navy text-navy eyebrow hover:bg-navy hover:text-cream transition-colors">
-            Transport Services
-          </Link>
-          <Link to="/contact" className="px-6 py-3 border border-gold text-gold eyebrow hover:bg-gold hover:text-navy transition-colors">
-            Contact Support
-          </Link>
-        </div>
+        <Link
+          to="/"
+          className="inline-flex px-8 py-3 bg-navy text-cream eyebrow hover:bg-gold hover:text-navy transition-colors"
+        >
+          Return Home
+        </Link>
       </div>
     </div>
   );
@@ -89,6 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: site.description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { title: "Lovable App" },
+      { property: "og:title", content: "Lovable App" },
+      { name: "twitter:title", content: "Lovable App" },
+      { name: "description", content: "Prestige Connect is a premium, enterprise-level website and management system for real estate and transport services." },
+      { property: "og:description", content: "Prestige Connect is a premium, enterprise-level website and management system for real estate and transport services." },
+      { name: "twitter:description", content: "Prestige Connect is a premium, enterprise-level website and management system for real estate and transport services." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/634fc673-a594-4574-928c-61709969cfb9/id-preview-4b732178--b6985672-4d8f-4bdc-9f77-b07b168afd5b.lovable.app-1780505429923.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/634fc673-a594-4574-928c-61709969cfb9/id-preview-4b732178--b6985672-4d8f-4bdc-9f77-b07b168afd5b.lovable.app-1780505429923.png" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
