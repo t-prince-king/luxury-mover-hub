@@ -9,17 +9,31 @@
  */
 
 export const site = {
-  /** Brand name shown in header, footer, meta tags */
-  name: "Vanguard",
+  /** Brand name shown in header, footer, meta tags, emails, invoices, etc. */
+  name: "KESHA REAL ESTATE & TRANSPORT SERVICES",
+  /** Short brand used in compact UI (header logo wordmark) */
+  shortName: "KESHA",
   /** Optional sub-line (e.g. legal entity) */
-  legalName: "Vanguard Sovereign Group",
+  legalName: "Kesha Real Estate & Transport Services",
   /** Short tagline for hero / SEO */
-  tagline: "Bespoke real estate acquisitions and global transport logistics.",
+  tagline: "Premium real estate acquisitions and full-spectrum transport services.",
   /** Long description for meta tags */
   description:
-    "Premium real estate and transport services for discerning enterprise clients. Curated properties, executive fleet, and 24/7 concierge.",
+    "Kesha Real Estate & Transport Services — curated properties, executive car rental, taxi booking, and cargo logistics under one trusted brand.",
   /** Founded year (for footer copyright) */
   foundedYear: 1982,
+} as const;
+
+/**
+ * SITE CREDIT
+ * -----------
+ * Shown in the footer bottom-left on every page.
+ * Edit the label or URL here to update the credit site-wide.
+ */
+export const credit = {
+  prefix: "Site Created By",
+  label: "SiteCrafter",
+  url: "https://sitecrafter.example", // TODO: replace with your real URL
 } as const;
 
 export const contact = {
