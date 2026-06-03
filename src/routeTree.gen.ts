@@ -12,7 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TransportRouteImport } from './routes/transport'
 import { Route as TaxiRouteImport } from './routes/taxi'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RegisterRouteImport } from './routes/register'
 import { Route as PropertiesRouteImport } from './routes/properties'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CargoRouteImport } from './routes/cargo'
 import { Route as CarRentalRouteImport } from './routes/car-rental'
@@ -34,9 +37,24 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PropertiesRoute = PropertiesRouteImport.update({
   id: '/properties',
   path: '/properties',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -71,7 +89,10 @@ export interface FileRoutesByFullPath {
   '/car-rental': typeof CarRentalRoute
   '/cargo': typeof CargoRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/login': typeof LoginRoute
   '/properties': typeof PropertiesRoute
+  '/register': typeof RegisterRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taxi': typeof TaxiRoute
   '/transport': typeof TransportRoute
@@ -82,7 +103,10 @@ export interface FileRoutesByTo {
   '/car-rental': typeof CarRentalRoute
   '/cargo': typeof CargoRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/login': typeof LoginRoute
   '/properties': typeof PropertiesRoute
+  '/register': typeof RegisterRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taxi': typeof TaxiRoute
   '/transport': typeof TransportRoute
@@ -94,7 +118,10 @@ export interface FileRoutesById {
   '/car-rental': typeof CarRentalRoute
   '/cargo': typeof CargoRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/login': typeof LoginRoute
   '/properties': typeof PropertiesRoute
+  '/register': typeof RegisterRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/taxi': typeof TaxiRoute
   '/transport': typeof TransportRoute
@@ -107,7 +134,10 @@ export interface FileRouteTypes {
     | '/car-rental'
     | '/cargo'
     | '/contact'
+    | '/dashboard'
+    | '/login'
     | '/properties'
+    | '/register'
     | '/sitemap.xml'
     | '/taxi'
     | '/transport'
@@ -118,7 +148,10 @@ export interface FileRouteTypes {
     | '/car-rental'
     | '/cargo'
     | '/contact'
+    | '/dashboard'
+    | '/login'
     | '/properties'
+    | '/register'
     | '/sitemap.xml'
     | '/taxi'
     | '/transport'
@@ -129,7 +162,10 @@ export interface FileRouteTypes {
     | '/car-rental'
     | '/cargo'
     | '/contact'
+    | '/dashboard'
+    | '/login'
     | '/properties'
+    | '/register'
     | '/sitemap.xml'
     | '/taxi'
     | '/transport'
@@ -141,7 +177,10 @@ export interface RootRouteChildren {
   CarRentalRoute: typeof CarRentalRoute
   CargoRoute: typeof CargoRoute
   ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRoute
+  LoginRoute: typeof LoginRoute
   PropertiesRoute: typeof PropertiesRoute
+  RegisterRoute: typeof RegisterRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TaxiRoute: typeof TaxiRoute
   TransportRoute: typeof TransportRoute
@@ -170,11 +209,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/properties': {
       id: '/properties'
       path: '/properties'
       fullPath: '/properties'
       preLoaderRoute: typeof PropertiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -221,7 +281,10 @@ const rootRouteChildren: RootRouteChildren = {
   CarRentalRoute: CarRentalRoute,
   CargoRoute: CargoRoute,
   ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRoute,
+  LoginRoute: LoginRoute,
   PropertiesRoute: PropertiesRoute,
+  RegisterRoute: RegisterRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TaxiRoute: TaxiRoute,
   TransportRoute: TransportRoute,
