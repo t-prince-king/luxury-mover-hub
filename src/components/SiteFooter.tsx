@@ -17,7 +17,7 @@ export function SiteFooter() {
               className="w-6 h-6 border border-gold flex items-center justify-center font-serif italic text-gold text-xs"
               aria-hidden
             >
-              K
+              N
             </span>
             <span className="font-serif text-sm tracking-[0.2em] uppercase text-cream leading-tight">
               {site.name}

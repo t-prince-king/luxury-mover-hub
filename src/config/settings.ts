@@ -10,18 +10,18 @@
 
 export const site = {
   /** Brand name shown in header, footer, meta tags, emails, invoices, etc. */
-  name: "KESHA REAL ESTATE & TRANSPORT SERVICES",
+  name: "Nexus NOble Solutions & TRANSPORT SERVICES",
   /** Short brand used in compact UI (header logo wordmark) */
-  shortName: "KESHA",
+  shortName: "Nexus",
   /** Optional sub-line (e.g. legal entity) */
-  legalName: "Kesha Real Estate & Transport Services",
+  legalName: "Nexus NOble Solutions & Transport Services",
   /** Short tagline for hero / SEO */
   tagline: "Premium real estate acquisitions and full-spectrum transport services.",
   /** Long description for meta tags */
   description:
-    "Kesha Real Estate & Transport Services — curated properties, executive car rental, taxi booking, and cargo logistics under one trusted brand.",
+    "Nexus NOble Solutionss & Transport Services — curated properties, executive car rental, taxi booking, and cargo logistics under one trusted brand.",
   /** Founded year (for footer copyright) */
-  foundedYear: 1982,
+  foundedYear: 1984,
 } as const;
 
 /**
@@ -33,7 +33,7 @@ export const site = {
 export const credit = {
   prefix: "Site Created By",
   label: "SiteCrafter",
-  url: "https://sitecrafter.example", // TODO: replace with your real URL
+  url: "https://www.sitecraftersz.co/", // TODO: replace with your real URL
 } as const;
 
 export const contact = {
