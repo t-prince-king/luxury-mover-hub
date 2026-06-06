@@ -37,7 +37,7 @@ export const credit = {
 } as const;
 
 export const contact = {
-  phone: "+1 (000) 000-0000",
+  phone: "0789900000",
   email: "concierge@vanguard.example",
   address: {
     line1: "22 Berkeley Square",
